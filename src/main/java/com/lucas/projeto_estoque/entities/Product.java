@@ -17,16 +17,18 @@ public class Product implements Serializable {
     private Long id;
     private String name;
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd", timezone = "GMT")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy", timezone = "GMT")
     private LocalDate entryDate;
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd", timezone = "GMT")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy", timezone = "GMT")
     private LocalDate expirationDate;
     private Integer quantity;
 
+    // construtor sem argumentos
     public Product() {
     }
 
+    // construtor com argumentos
     public Product(Long id, String name, LocalDate entryDate, LocalDate expirationDate, Integer quantity) {
         this.id = id;
         if (expirationDate.isBefore(entryDate)) {
@@ -36,6 +38,15 @@ public class Product implements Serializable {
         this.entryDate = entryDate;
         this.expirationDate = expirationDate;
         this.quantity = quantity;
+    }
+
+    // getters e setters
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -70,14 +81,17 @@ public class Product implements Serializable {
         this.quantity = quantity;
     }
 
+    // método que verifica se um produto está vencido
     public boolean isExpired() {
         return expirationDate.isBefore(LocalDate.now());
     }
 
+    // método que verifica quantos dias para o produto vencer
     public long daysToExpire() {
         return ChronoUnit.DAYS.between(LocalDate.now(), expirationDate);
     }
 
+    // equals e hashCode
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

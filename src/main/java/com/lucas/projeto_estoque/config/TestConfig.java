@@ -32,6 +32,5 @@ public class TestConfig implements CommandLineRunner {
         Product p2 = new Product(null, "Feijão", LocalDate.parse("2025-12-01"), LocalDate.parse("2025-12-30"), 8);
         Product p3 = new Product(null, "Leite", LocalDate.parse("2025-12-01"), LocalDate.parse("2026-01-24"), 15);
         productRepository.saveAll(Arrays.asList(p1, p2, p3));
-
     }
 }

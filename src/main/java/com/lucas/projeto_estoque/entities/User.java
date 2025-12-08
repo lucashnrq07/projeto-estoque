@@ -17,9 +17,11 @@ public class User implements Serializable {
     private String email;
     private String password;
 
+    // construtor sem argumentos
     public User() {
     }
 
+    // construtor com argumentos
     public User(Long id, String name, String email, String password) {
         this.id = id;
         this.name = name;
@@ -27,6 +29,7 @@ public class User implements Serializable {
         this.password = password;
     }
 
+    // getters e setters
     public Long getId() {
         return id;
     }
@@ -59,6 +62,7 @@ public class User implements Serializable {
         this.password = password;
     }
 
+    // equals e hashCode
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
