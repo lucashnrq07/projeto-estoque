@@ -1,6 +1,7 @@
 package com.lucas.projeto_estoque.entities;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
@@ -17,10 +18,10 @@ public class Product implements Serializable {
     private Long id;
     private String name;
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy", timezone = "GMT")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate entryDate;
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy", timezone = "GMT")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate expirationDate;
     private Integer quantity;
 
@@ -87,6 +88,7 @@ public class Product implements Serializable {
     }
 
     // método que verifica quantos dias para o produto vencer
+    @JsonProperty
     public long daysToExpire() {
         return ChronoUnit.DAYS.between(LocalDate.now(), expirationDate);
     }
