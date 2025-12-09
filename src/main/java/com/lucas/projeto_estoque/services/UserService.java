@@ -1,4 +1,4 @@
-package com.educandoweb.course.services;
+package com.lucas.projeto_estoque.services;
 
 import java.util.List;
 import java.util.Optional;

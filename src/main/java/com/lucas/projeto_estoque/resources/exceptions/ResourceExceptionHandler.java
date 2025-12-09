@@ -2,7 +2,6 @@ package com.lucas.projeto_estoque.resources.exceptions;
 
 import java.time.Instant;
 
-import com.lucas.projeto_estoque.resources.exceptions.StandardError;
 import com.lucas.projeto_estoque.services.exceptions.DatabaseException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
